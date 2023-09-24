@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>  
+
+  <link rel='stylesheet' type="text/css" href="{% static 'css/style.css' %}"
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Bernardo Pugliese</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <h1>Botafogo de Futebol e Regatas</h1>
+  <h2>Um pouco sobre o Botafogo</h2>
+  <p style="text-align: justify;"><b>Botafogo de Futebol e Regatas</b> é uma agremiação poliesportiva brasileira, com sede no bairro homônimo ao clube, na cidade do Rio de Janeiro. Nascido da fusão do <i style='color: blue'>Club de Regatas Botafogo (fundado para o remo em 1894) com o Botafogo Football Club (formado para o futebol em 1904)</i>, é um dos principais clubes do Brasil. Suas maiores glórias esportivas vêm principalmente do futebol, especialmente entre as décadas de 1950 e de 1960, considerada sua era de ouro. Conhecido pela estrela de cinco pontas em seu distintivo, que lhe dá a alcunha de clube da Estrela Solitária, o Botafogo tem como suas cores oficiais o preto e o branco. Desde 2007, manda seus jogos de futebol no <u>Estádio Nilton Santos, antes chamado de Engenhão</u>.</p>
+  
+  <div class="blue-center">
+    <img src='https://logodetimes.com/times/botafogo/logo-botafogo-1024.png' width=400>
+    <img src='https://i.ytimg.com/vi/jJJ0AEH_VMU/hqdefault.jpg' width=500>
+  </div>
+
+  <h2>Títulos</h2>
+  <!--ul>
+    <li>21 Campeonatos Carioca</li>
+    <li>4 Torneios Rio-São Paulo</li>
+    <li>2 Taças dos Campeões Estaduais Rio-São Paulo</li>
+    <li>2 Campeonatos Brasileiros</li>
+    <li>1 Copa CONMEBOL</li>
+</ul-->
+  <ul>
+    {%for titu in titulos %}
+    <li>{{ titu.title }} 
+      <a href='/titulo/update/{{ titu.id }}'>Atualizar</a>
+      <a href='/titulo/delete/{{ titu.id }}'>Remover</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href='/titulo'>Adicionar novo título:</a>
+  
+  <h2>Estádio</h2>
+  <p style="text-align: justify;">Construído pela prefeitura para os Jogos Pan-Americanos de 2007 no bairro do Engenho de Dentro, é oficialmente denominado <u>Estádio Nilton Santos</u>, porém conhecido popularmente como <u>Engenhão</u>. Foi arrendado pelo Botafogo em 2007 pelo prazo de vinte anos. O estádio possui capacidade para cerca de 45 mil espectadores e é o local onde a equipe manda suas partidas. A arena conta ainda com uma pista de atletismo dentro dos padrões internacionais e um campo de aquecimento no exterior do estádio, onde o time profissional também treina. <b>As partidas disputadas no estádio Nilton Santos, no ano de 2023, com maior público, foram:</b></p>
+  <!--ol>
+    <li>Botafogo 4x1 Coritiba</li>
+    <li>Botafogo 3x1 Internacional</li>
+    <li>Botafogo 1x0 Athletico Paranaense</li>
+</ol-->
+<ol>
+  {% for public in publics %}
+  <li>{{ public.title }} 
+    <a href='/jogo/update/{{ public.id }}'>Atualizar</a>
+  <a href='/jogo/delete/{{ public.id }}'>Remover</a>
+  </li>
+  {% endfor %}
+</ol>
+<a href='/jogo'>Adicionar novo jogo:</a>
+  
+  <h2>Ídolos</h2>
+  <p style="text-align: justify;">O Botafogo é conhecido por ter tido diversos craques atuando com seu uniforme, muitos deles se tornando ídolos do clube. Não é atoa que é o clube que mais cedeu jogadores(47) para o Brasil em Copas do Mundo. Em homenagem aos seus ídolos foi criado em 2008 o muro dos ídolos, que é um muro pintado com a caricatura de vários desses ex jogadores,em frente a sua sede, em General Severiano.Alguns desses jogadores além de ídolos do Botafogo, são ídolos nacionais, e foram campeões do mundo com a Seleção Brasileira, como por exemplo:</p>
+  <!--ul>
+    <li> Nilton Santos </li>
+    <li> Zagallo </li>
+    <li> Garrincha </li>
+    <li> Didi </li>
+    <li> Jairzinho </li>
+    <li> Gerson </li>
+</ul-->
+
+  <ul>
+  {% for idol in idols %}
+  <li>{{ idol.title }} 
+    <a href='/idolo/update/{{ idol.id }}'>Atualizar</a>
+  <a href='/idolo/delete/{{ idol.id }}'>Remover</a>
+  </li>
+  {% endfor %}
+  </ul>
+  <a href='/idolo'>Adicionar novo ídolo:</a>
+  <br>
+  <br>
+  <caption>Jogadores que mais atuaram pelo clube:</caption>
+  <table border='1' class='cor-tabela'>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Jogos</th>
+        <th>Posição</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for table in tables %}
+      <tr>
+        <td>{{ table.name }}</td>
+        <td>{{ table.game }}</td>
+        <td>{{ table.position }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <p><i style="color:red">Para mais informações e curiosidades sobre o Botafogo clique no link a seguir:</i> <a href="https://www.botafogo.com.br/" target="_blank">Botafogo</a>
+  </p>
+</body>
+
+</html>

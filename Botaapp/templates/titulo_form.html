@@ -1,0 +1,26 @@
+<h1>{{ type }} Títulos</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  <div>
+    <label>Título:</label>
+    <input name='title' value='{{ titul.title }}'>
+  </div>
+
+  <div>
+    <label>Importancia:</label>
+    <input name='importancia' value='{{ titul.importancia }}'
+  </div>
+
+  <div>
+    <label>Quantidade:</label>
+    <input type='number' name='quantidade' value='{{ titul.quantidade }}'>
+  </div>
+
+  <div>
+    <label>Assistido:</label>
+    <input name='watched' valeu='{{ titul.watched }}'
+  </div>
+
+  <input type='submit' value='Registrar'>
+</form>

@@ -1,0 +1,26 @@
+<h1>{{ type }} Jogos</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  <div>
+    <label>Jogo:</label>
+    <input name='title', value='{{ jog.title }}'>
+  </div>
+
+  <div>
+    <label>Data do jogo:</label>
+    <input type='date' name='date', value='{{ jog.date }}'>
+  </div>
+
+  <div>
+    <label>Público:</label>
+    <input type='number' name='publico', value='{{ jog.publico }}'>
+  </div>
+
+  <div>
+    <label>Presença:</label>
+    <input name='presence', value='{{ jog.presence }}'
+  </div>
+
+  <input type='submit' value='Registrar'>
+</form>
