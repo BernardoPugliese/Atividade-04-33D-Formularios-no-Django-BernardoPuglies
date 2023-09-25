@@ -19,6 +19,10 @@
 </head>
 
 <body>
+  {% if request.user.is_authenticated %} <b>Bem vindo, {{ request.user.username}}</b> <br> 
+  <a href='users/logout'>Logout</a>
+  {% endif %}
+  
   <h1>Botafogo de Futebol e Regatas</h1>
   <h2>Um pouco sobre o Botafogo</h2>
   <p style="text-align: justify;"><b>Botafogo de Futebol e Regatas</b> é uma agremiação poliesportiva brasileira, com sede no bairro homônimo ao clube, na cidade do Rio de Janeiro. Nascido da fusão do <i style='color: blue'>Club de Regatas Botafogo (fundado para o remo em 1894) com o Botafogo Football Club (formado para o futebol em 1904)</i>, é um dos principais clubes do Brasil. Suas maiores glórias esportivas vêm principalmente do futebol, especialmente entre as décadas de 1950 e de 1960, considerada sua era de ouro. Conhecido pela estrela de cinco pontas em seu distintivo, que lhe dá a alcunha de clube da Estrela Solitária, o Botafogo tem como suas cores oficiais o preto e o branco. Desde 2007, manda seus jogos de futebol no <u>Estádio Nilton Santos, antes chamado de Engenhão</u>.</p>
